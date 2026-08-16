@@ -14,8 +14,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.use_color_management=false \
     ro.control_privapp_permissions=enforce
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=adb \
+    service.adb.tcp.port=5555 \
+    ro.adb.secure=0 \
+    ro.debuggable=1
+
 PRODUCT_COPY_FILES += \
-    device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5
+    device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5 \
+    device/rpi/rpi5/input/qwerty.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty.idc
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service.default \
