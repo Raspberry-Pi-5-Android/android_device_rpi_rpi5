@@ -1,6 +1,6 @@
-PRODUCTS_MAKEFILES := \
-	$(LOCAL_DIR)/rpi5.mk
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/rpi5.mk
 
 COMMON_LUNCH_CHOICES := \
-	rpi5-userdebug \
-	rpi5-eng
+    rpi5-trunk_staging-userdebug \
+    rpi5-trunk_staging-eng

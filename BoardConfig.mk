@@ -12,9 +12,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a76
 TARGET_NO_KERNEL := false
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_BOOT_HEADER_VERSION := 2
+BOARD_INCLUDE_DTB_IN_BOOTIMG := false
 TARGET_PREBUILT_KERNEL := kernel/rpi/rpi5/Image.gz
-BOARD_PREBUILT_DTBIMAGE_DIR := kernel/rpi/rpi5/overlays
-BOARD_KERNEL_CMDLINE := console=serial0,115200 console=tty1 root=/dev/ram0 initrd=0x03000000 androidboot.hardware=rpi5 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=serial0,115200 console=tty1 root=/dev/ram0 initrd=0x03000000 androidboot.hardware=rpi5androidboot.selinux=permissive
 
 BOARD_SUPER_PARTITION_SIZE := 4294967296
 BOARD_SUPER_PARTITION_GROUPS := rpi_dynamic_partitions
@@ -34,3 +34,5 @@ TARGET_USES_HWC2 := true
 BOARD_EGL_WORKAROUND_BUG_1019066 := true
 
 BOARD_SEPOLICY_DIRS += device/rpi/rpi5/sepolicy
+
+PRODUCT_FULL_TREBLE_OVERRIDE := true
