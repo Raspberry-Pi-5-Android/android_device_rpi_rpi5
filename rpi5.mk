@@ -13,3 +13,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5
+
+$(call inherit-product-if-exists, vendor/rpi/rpi5/rpi5-vendor.mk)
