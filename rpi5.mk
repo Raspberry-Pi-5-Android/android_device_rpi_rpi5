@@ -24,6 +24,8 @@ PRODUCT_COPY_FILES += \
     device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5 \
     device/rpi/rpi5/input/qwerty.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty.idc
 
+DEVICE_MANIFEST_FILE += device/rpi/rpi5/vintf/manifest.xml
+
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service.default \
     android.hardware.graphics.composer-service.default \
