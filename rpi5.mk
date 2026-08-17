@@ -1,6 +1,9 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_BUILD_SUPER_IMAGE := true
+
 PRODUCT_NAME := rpi5
 PRODUCT_DEVICE := rpi5
 PRODUCT_BRAND := RaspberryPi
@@ -22,7 +25,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_COPY_FILES += \
     device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5 \
-    device/rpi/rpi5/input/qwerty.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty.idc
+    device/rpi/rpi5/input/qwerty.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty.idc \
+    kernel/rpi/rpi5/Image.gz:kernel
 
 DEVICE_MANIFEST_FILE += device/rpi/rpi5/vintf/manifest.xml
 

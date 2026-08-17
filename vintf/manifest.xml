@@ -1,17 +1,9 @@
 <manifest version="1.0" type="device" target-level="202404">
     <hal format="aidl">
         <name>android.hardware.graphics.allocator</name>
-        <version>2</version>
+        <version>1</version>
         <interface>
-            <name>IAllocation</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>android.hardware.graphics.composer</name>
-        <version>3</version>
-        <interface>
-            <name>IComposer</name>
+            <name>IAllocator</name>
             <instance>default</instance>
         </interface>
     </hal>
