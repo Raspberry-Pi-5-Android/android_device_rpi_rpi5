@@ -1,3 +1,6 @@
+# Platform
+TARGET_BOARD_PLATFORM := rpi
+
 # Target Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
