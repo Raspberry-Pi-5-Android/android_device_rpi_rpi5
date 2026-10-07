@@ -30,12 +30,8 @@ PRODUCT_COPY_FILES += \
 DEVICE_MANIFEST_FILE += device/rpi/rpi5/vintf/manifest.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator-service.default \
-    android.hardware.graphics.composer-service.default \
     gralloc.minigbm \
-    hwcomposer.drm \
-    libGLES_mesa \
-    vulkan.broadcom
+    hwcomposer.drm
 
 $(call inherit-product-if-exists, vendor/rpi/rpi5/rpi5-vendor.mk)
 
