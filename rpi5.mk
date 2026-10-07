@@ -38,3 +38,6 @@ PRODUCT_PACKAGES += \
     vulkan.broadcom
 
 $(call inherit-product-if-exists, vendor/rpi/rpi5/rpi5-vendor.mk)
+
+# Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
+$(call enforce-product-packages-exist,)
