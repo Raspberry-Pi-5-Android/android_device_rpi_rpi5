@@ -40,4 +40,7 @@ PRODUCT_PACKAGES += \
 $(call inherit-product-if-exists, vendor/rpi/rpi5/rpi5-vendor.mk)
 
 # Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
-$(call enforce-product-packages-exist,)
+$(call enforce-product-packages-exist, \
+    product_manifest.xml \
+    android.hardware.health@2.0-impl-default.recovery \
+    DeviceDiagnostics)
