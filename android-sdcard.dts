@@ -17,13 +17,6 @@
 					fstab {
 						compatible = "android,fstab";
 
-						boot {
-							compatible = "android,boot";
-							dev = "/dev/block/mmcblk0p1";
-							type = "vfat";
-							mnt_flags = "ro";
-							fsmgr_flags = "wait,first_stage_mount";
-						};
 
 						system {
 							compatible = "android,system";
