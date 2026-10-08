@@ -23,7 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     device/rpi/rpi5/android-sdcard.dtbo:boot/overlays/android-sdcard.dtbo \
     device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5 \
-    device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_RAMDISK)/fstab.rpi5 \
+    device/rpi/rpi5/init.rpi5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi5.rc \
     device/rpi/rpi5/input/qwerty.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty.idc \
     kernel/rpi/rpi5/Image.gz:kernel
 
