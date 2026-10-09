@@ -46,7 +46,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.logd.logpersistd=logcatd
 
 # Graphics (Plan B): software rendering - ANGLE (GLES) on SwiftShader (Vulkan)
-$(call soong_config_set,angle,angle_in_vendor,true)
 
 PRODUCT_PACKAGES += \
     libEGL_angle \
