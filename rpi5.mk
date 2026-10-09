@@ -62,3 +62,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service.minigbm \
     mapper.minigbm
+
+# Graphics: composer HWC3 (drm_hwcomposer, AIDL composer3 V3). rc + VINTF dipasang oleh modulnya sendiri
+PRODUCT_PACKAGES += \
+    android.hardware.composer.hwc3-service.drm
