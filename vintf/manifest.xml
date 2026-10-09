@@ -1,10 +1,2 @@
 <manifest version="1.0" type="device" target-level="202404">
-    <hal format="aidl">
-        <name>android.hardware.graphics.allocator</name>
-        <version>1</version>
-        <interface>
-            <name>IAllocator</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </manifest>

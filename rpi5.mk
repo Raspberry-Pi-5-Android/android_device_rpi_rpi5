@@ -57,3 +57,8 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.egl=angle \
     ro.hardware.vulkan=pastel \
     ro.opengles.version=196609
+
+# Graphics: buffer allocator + mapper (minigbm, dumb buffers on vc4)
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator-service.minigbm \
+    mapper.minigbm
