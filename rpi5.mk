@@ -44,3 +44,17 @@ $(call enforce-product-packages-exist, \
 # Debug: persist logcat to /data/misc/logd (readable from host)
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.logd.logpersistd=logcatd
+
+# Graphics (Plan B): software rendering - ANGLE (GLES) on SwiftShader (Vulkan)
+$(call soong_config_set,angle,angle_in_vendor,true)
+
+PRODUCT_PACKAGES += \
+    libEGL_angle \
+    libGLESv1_CM_angle \
+    libGLESv2_angle \
+    vulkan.pastel
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.egl=angle \
+    ro.hardware.vulkan=pastel \
+    ro.opengles.version=196609
