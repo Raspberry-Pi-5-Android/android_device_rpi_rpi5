@@ -40,3 +40,7 @@ $(call enforce-product-packages-exist, \
     product_manifest.xml \
     android.hardware.health@2.0-impl-default.recovery \
     DeviceDiagnostics)
+
+# Debug: persist logcat to /data/misc/logd (readable from host)
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.logd.logpersistd=logcatd
