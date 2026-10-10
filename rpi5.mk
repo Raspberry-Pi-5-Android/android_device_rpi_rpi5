@@ -54,6 +54,9 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml
 
+# KeyMint HAL (AIDL, AOSP Rust nonsecure implementation, vendor APEX)
+PRODUCT_PACKAGES += com.android.hardware.keymint.rust_nonsecure
+
 # Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
 $(call enforce-product-packages-exist, \
     product_manifest.xml \
