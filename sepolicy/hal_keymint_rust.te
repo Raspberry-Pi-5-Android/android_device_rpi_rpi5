@@ -1,0 +1,9 @@
+# KeyMint HAL from the com.android.hardware.keymint.rust_nonsecure APEX
+# (AOSP Rust nonsecure implementation). Type names are fixed by that APEX's
+# file_contexts. Minimal definition for bring-up; refine before enforcing.
+type hal_keymint_rust, domain;
+type hal_keymint_rust_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(hal_keymint_rust)
+
+hal_server_domain(hal_keymint_rust, hal_keymint)
