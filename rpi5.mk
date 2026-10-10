@@ -57,6 +57,9 @@ PRODUCT_COPY_FILES += \
 # KeyMint HAL (AIDL, AOSP Rust nonsecure implementation, vendor APEX)
 PRODUCT_PACKAGES += com.android.hardware.keymint.rust_nonsecure
 
+# Gatekeeper HAL (AIDL, AOSP nonsecure implementation, vendor APEX)
+PRODUCT_PACKAGES += com.android.hardware.gatekeeper.nonsecure
+
 # Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
 $(call enforce-product-packages-exist, \
     product_manifest.xml \
