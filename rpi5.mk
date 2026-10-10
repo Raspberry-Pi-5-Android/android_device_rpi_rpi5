@@ -38,6 +38,9 @@ $(call inherit-product-if-exists, vendor/rpi/rpi5/rpi5-vendor.mk)
 # Health HAL (AIDL, AOSP reference implementation)
 PRODUCT_PACKAGES += android.hardware.health-service.example
 
+# Audio HAL (AIDL, AOSP reference implementation, vendor APEX)
+PRODUCT_PACKAGES += com.android.hardware.audio
+
 # Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
 $(call enforce-product-packages-exist, \
     product_manifest.xml \
