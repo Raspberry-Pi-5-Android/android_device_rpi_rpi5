@@ -40,6 +40,8 @@ PRODUCT_PACKAGES += android.hardware.health-service.example
 
 # Audio HAL (AIDL, AOSP reference implementation, vendor APEX)
 PRODUCT_PACKAGES += com.android.hardware.audio
+PRODUCT_COPY_FILES += \
+    hardware/interfaces/audio/aidl/default/audio_effects_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_config.xml
 
 # Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
 $(call enforce-product-packages-exist, \
