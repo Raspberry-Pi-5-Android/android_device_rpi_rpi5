@@ -31,6 +31,9 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_CMDLINE := console=ttyAMA0,115200 rootwait androidboot.hardware=rpi5 androidboot.selinux=permissive
+# PSI is built in but default-disabled (CONFIG_PSI_DEFAULT_DISABLED=y); lmkd requires it.
+# Effective cmdline on RPi is cmdline.txt on the boot partition; keep both in sync.
+BOARD_KERNEL_CMDLINE += psi=1
 BOARD_INCLUDE_RECOVERY_DTBO := false
 BOARD_USES_GENERIC_KERNEL_IMAGE := false
 
