@@ -70,6 +70,11 @@ $(call enforce-product-packages-exist, \
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.logd.logpersistd=logcatd
 
+# Kernel has no ashmem driver (removed upstream). Let libcutils back ashmem
+# regions with memfd (CONFIG_MEMFD_CREATE=y). Platform property -> system props.
+PRODUCT_SYSTEM_PROPERTIES += \
+    sys.use_memfd=true
+
 # Graphics (Plan B): software rendering - ANGLE (GLES) on SwiftShader (Vulkan)
 
 PRODUCT_PACKAGES += \
