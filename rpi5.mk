@@ -60,6 +60,12 @@ PRODUCT_PACKAGES += com.android.hardware.keymint.rust_nonsecure
 # Gatekeeper HAL (AIDL, AOSP nonsecure implementation, vendor APEX)
 PRODUCT_PACKAGES += com.android.hardware.gatekeeper.nonsecure
 
+# Device feature set (AOSP tablet profile). Declares android.software.app_widgets,
+# without which AppWidgetService is not started and Launcher3 crashes (NPE).
+# TODO(originality): replace with an RPi5-specific feature list.
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
+
 # Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
 $(call enforce-product-packages-exist, \
     product_manifest.xml \
