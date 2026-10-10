@@ -15,7 +15,10 @@ TARGET_2ND_CPU_VARIANT := cortex-a76
 
 # Graphics & Display
 BOARD_GPU_DRIVERS := v3d vc4
-TARGET_USES_VULKAN := true
+# HWUI must not use Vulkan: SwiftShader (ro.hardware.vulkan=pastel) exposes fewer
+# queues than VulkanManager requires (kRequestedQueueCount=2) -> SystemUI abort.
+# false -> ro.hwui.use_vulkan=false (sysprop_config.mk) -> HWUI renderer skiagl via ANGLE.
+TARGET_USES_VULKAN := false
 BOARD_USES_DRM_HWCOMPOSER := true
 TARGET_USES_HWC2 := true
 BOARD_EGL_WORKAROUND_BUG_1019066 := true
