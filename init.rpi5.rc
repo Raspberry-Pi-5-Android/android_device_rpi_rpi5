@@ -3,3 +3,12 @@
 # /data is mounted here in second stage.
 on fs
     mount_all /vendor/etc/fstab.rpi5
+
+# TEMPORARY (bring-up, SELinux permissive only).
+# The kernel has no ashmem driver, and platform init.rc sets sys.use_memfd=false
+# in post-fs-data. Re-enable libcutils' memfd backend in the same trigger
+# (vendor actions run after platform ones), before zygote-start.
+# use_memfd_prop is platform-restricted (neverallow for vendor_init):
+# replace with a kernel ashmem driver before switching SELinux to enforcing.
+on post-fs-data
+    setprop sys.use_memfd true
