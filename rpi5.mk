@@ -66,6 +66,10 @@ PRODUCT_PACKAGES += com.android.hardware.gatekeeper.nonsecure
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
 
+# Dalvik/ART heap sizing for an ~8 GB device. Without it ART defaults to a 16 MiB
+# growth limit and system_server/SystemUI die with OutOfMemoryError.
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
 # Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
 $(call enforce-product-packages-exist, \
     product_manifest.xml \
