@@ -30,10 +30,19 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 # Kernel Configuration
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_CMDLINE := console=ttyAMA0,115200 rootwait androidboot.hardware=rpi5 androidboot.selinux=permissive
+# Kernel command line. Single source for cmdline.txt on the boot partition,
+# which the Raspberry Pi firmware passes to the kernel (boot.img is not used).
+# ttyAMA10 is the Pi 5 debug UART (serial10 alias in bcm2712-rpi.dtsi).
+BOARD_KERNEL_CMDLINE := console=tty0 console=ttyAMA10,115200 root=/dev/ram0 rootwait
+BOARD_KERNEL_CMDLINE += androidboot.hardware=rpi5 androidboot.console=tty0
 # PSI is built in but default-disabled (CONFIG_PSI_DEFAULT_DISABLED=y); lmkd requires it.
-# Effective cmdline on RPi is cmdline.txt on the boot partition; keep both in sync.
 BOARD_KERNEL_CMDLINE += psi=1
+# TEMP: permissive until the device sepolicy is complete.
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+ifneq ($(TARGET_BUILD_VARIANT),user)
+# Debug builds: keep the console alive and log every initcall and /dev/kmsg write.
+BOARD_KERNEL_CMDLINE += no_console_suspend initcall_debug printk.devkmsg=on
+endif
 BOARD_INCLUDE_RECOVERY_DTBO := false
 BOARD_USES_GENERIC_KERNEL_IMAGE := false
 
