@@ -21,7 +21,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.debuggable=1
 
 PRODUCT_COPY_FILES += \
-    device/rpi/rpi5/android-sdcard.dtbo:boot/overlays/android-sdcard.dtbo \
     device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5 \
     device/rpi/rpi5/init.rpi5.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi5.rc \
     device/rpi/rpi5/input/qwerty.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty.idc \
@@ -32,8 +31,6 @@ DEVICE_MANIFEST_FILE += device/rpi/rpi5/vintf/manifest.xml
 PRODUCT_PACKAGES += \
     gralloc.minigbm \
     hwcomposer.drm
-
-$(call inherit-product-if-exists, vendor/rpi/rpi5/rpi5-vendor.mk)
 
 # Health HAL (AIDL, AOSP reference implementation)
 PRODUCT_PACKAGES += android.hardware.health-service.example
