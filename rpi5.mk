@@ -63,6 +63,11 @@ PRODUCT_PACKAGES += com.android.hardware.gatekeeper.nonsecure
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
 
+# Ethernet controller on RP1 (macb, eth0). ConnectivityService starts
+# EthernetService only when this feature is declared (deviceSupportsEthernet()).
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
+
 # Dalvik/ART heap sizing for an ~8 GB device. Without it ART defaults to a 16 MiB
 # growth limit and system_server/SystemUI die with OutOfMemoryError.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
