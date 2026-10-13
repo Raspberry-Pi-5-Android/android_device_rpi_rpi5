@@ -14,11 +14,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.use_color_management=false \
     ro.control_privapp_permissions=enforce
 
+# adb over TCP for development builds (Ethernet; no USB gadget yet).
+# ro.debuggable, ro.adb.secure and persist.sys.usb.config are already set
+# per variant by the build system (sysprop_config.mk, post_process_props.py).
+ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=adb \
-    service.adb.tcp.port=5555 \
-    ro.adb.secure=0 \
-    ro.debuggable=1
+    service.adb.tcp.port=5555
+endif
 
 PRODUCT_COPY_FILES += \
     device/rpi/rpi5/fstab.rpi5:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi5 \
