@@ -3,9 +3,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 PRODUCT_NAME := rpi5
 PRODUCT_DEVICE := rpi5
-PRODUCT_BRAND := RaspberryPi
-PRODUCT_MANUFACTURER := RaspberryPi
-PRODUCT_MODEL := ZeeOS 15 on Raspberry Pi 5
+PRODUCT_BRAND := Android
+PRODUCT_MANUFACTURER := Raspberry Pi
+PRODUCT_MODEL := AOSP on Raspberry Pi 5
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=180 \
