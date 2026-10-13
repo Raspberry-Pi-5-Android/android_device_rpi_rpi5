@@ -68,6 +68,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml
 
+# USB host ports (RP1 xHCI). SystemServer starts UsbService only when this
+# feature (or usb.accessory) is declared; UsbService then creates UsbHostManager.
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml
+
 # Dalvik/ART heap sizing for an ~8 GB device. Without it ART defaults to a 16 MiB
 # growth limit and system_server/SystemUI die with OutOfMemoryError.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
