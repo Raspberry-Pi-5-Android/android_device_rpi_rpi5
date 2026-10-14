@@ -7,7 +7,7 @@ PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Raspberry Pi
 PRODUCT_MODEL := AOSP on Raspberry Pi 5
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.sf.lcd_density=180 \
     ro.surface_flinger.has_wide_color_display=false \
     ro.surface_flinger.has_HDR_display=false \
@@ -18,7 +18,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # ro.debuggable, ro.adb.secure and persist.sys.usb.config are already set
 # per variant by the build system (sysprop_config.mk, post_process_props.py).
 ifneq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     service.adb.tcp.port=5555
 endif
 
