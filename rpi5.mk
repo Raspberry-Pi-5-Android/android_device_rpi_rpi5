@@ -59,11 +59,13 @@ PRODUCT_PACKAGES += com.android.hardware.keymint.rust_nonsecure
 # Gatekeeper HAL (AIDL, AOSP nonsecure implementation, vendor APEX)
 PRODUCT_PACKAGES += com.android.hardware.gatekeeper.nonsecure
 
-# Device feature set (AOSP tablet profile). Declares android.software.app_widgets,
-# without which AppWidgetService is not started and Launcher3 crashes (NPE).
-# TODO(originality): replace with an RPi5-specific feature list.
+# Device feature set: own list derived from the AOSP tablet profile, without
+# hardware the board does not have (bluetooth until a HAL exists, location,
+# sensors, touchscreen, microphone, portrait). app_widgets is required for
+# AppWidgetService (Launcher3). faketouch: pointer input from a mouse.
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
+    device/rpi/rpi5/permissions/rpi5_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/rpi5_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.faketouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.faketouch.xml
 
 # Ethernet controller on RP1 (macb, eth0). ConnectivityService starts
 # EthernetService only when this feature is declared (deviceSupportsEthernet()).
