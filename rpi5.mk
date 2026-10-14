@@ -48,7 +48,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/primary_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/primary_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
-    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration_7_0.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
     frameworks/av/services/audiopolicy/config/surround_sound_configuration_5_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/surround_sound_configuration_5_0.xml
@@ -81,7 +80,8 @@ PRODUCT_COPY_FILES += \
 # growth limit and system_server/SystemUI die with OutOfMemoryError.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# Gagalkan build kalau PRODUCT_PACKAGES berisi module yang tidak ada
+# Fail the build if PRODUCT_PACKAGES names a module that does not exist
+# (the modules listed below are exempt).
 $(call enforce-product-packages-exist, \
     product_manifest.xml \
     android.hardware.health@2.0-impl-default.recovery \
@@ -114,6 +114,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service.minigbm \
     mapper.minigbm
 
-# Graphics: composer HWC3 (drm_hwcomposer, AIDL composer3 V3). rc + VINTF dipasang oleh modulnya sendiri
+# Graphics: composer HWC3 (drm_hwcomposer, AIDL composer3 V3). The module installs
+# its own init rc and VINTF fragment.
 PRODUCT_PACKAGES += \
     android.hardware.composer.hwc3-service.drm
