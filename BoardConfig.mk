@@ -14,14 +14,10 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a76
 
 # Graphics & Display
-BOARD_GPU_DRIVERS := v3d vc4
 # HWUI must not use Vulkan: SwiftShader (ro.hardware.vulkan=pastel) exposes fewer
 # queues than VulkanManager requires (kRequestedQueueCount=2) -> SystemUI abort.
 # false -> ro.hwui.use_vulkan=false (sysprop_config.mk) -> HWUI renderer skiagl via ANGLE.
 TARGET_USES_VULKAN := false
-BOARD_USES_DRM_HWCOMPOSER := true
-TARGET_USES_HWC2 := true
-BOARD_EGL_WORKAROUND_BUG_1019066 := true
 
 # SEPolicy
 BOARD_SEPOLICY_DIRS += device/rpi/rpi5/sepolicy
@@ -55,13 +51,13 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_PRODUCT := system/product
 TARGET_COPY_OUT_SYSTEM_EXT := system/system_ext
 
-# Ukuran Partisi Statis
+# Static partition sizes
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864          # 64MB
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648      # 2GB
 BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912       # 512MB
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824    # 1GB
 
-# Tipe Filesystem
+# Filesystem types
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
