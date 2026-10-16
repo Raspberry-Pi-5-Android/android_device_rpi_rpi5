@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<!-- Window manager display settings, read from /vendor/etc/display_settings.xml. -->
+<display-settings>
+    <!-- Identify displays by physical port, so the settings survive a monitor change. -->
+    <config identifier="1" />
+    <!-- HDMI port 0: keep the display at the user rotation (landscape). Apps that
+         request portrait are letterboxed instead of rotating the whole display,
+         the same behavior Android applies to TV and PC devices. -->
+    <display name="port:0" fixedToUserRotation="2" />
+</display-settings>

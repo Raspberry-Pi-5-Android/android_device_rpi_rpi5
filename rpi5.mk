@@ -130,3 +130,7 @@ PRODUCT_PACKAGES += \
 # its own init rc and VINTF fragment.
 PRODUCT_PACKAGES += \
     android.hardware.composer.hwc3-service.drm
+
+# Display: keep the HDMI display landscape; portrait apps are letterboxed.
+PRODUCT_COPY_FILES += \
+    device/rpi/rpi5/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
