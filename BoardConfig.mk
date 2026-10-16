@@ -7,11 +7,7 @@ TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_VARIANT := cortex-a76
 
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a76
+# 64-bit only (core_64_bit_only.mk in rpi5.mk): no secondary 32-bit architecture.
 
 # Graphics & Display
 # HWUI must not use Vulkan: SwiftShader (ro.hardware.vulkan=pastel) exposes fewer

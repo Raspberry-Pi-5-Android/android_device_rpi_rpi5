@@ -1,4 +1,5 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+# 64-bit only: no 32-bit zygote and no 32-bit libraries.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 PRODUCT_NAME := rpi5
