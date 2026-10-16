@@ -109,6 +109,16 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.vulkan=pastel \
     ro.opengles.version=196609
 
+# Mesa GPU drivers (vendor/rpi/rpi5/mesa): V3D/VC4 for OpenGL ES, V3DV for Vulkan.
+# Installed only; the drivers in use are still selected by ro.hardware.egl and
+# ro.hardware.vulkan above.
+PRODUCT_PACKAGES += \
+    libEGL_mesa \
+    libGLESv1_CM_mesa \
+    libGLESv2_mesa \
+    libgallium_dri \
+    vulkan.broadcom
+
 # Graphics: buffer allocator + mapper (minigbm, dumb buffers on vc4)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service.minigbm \
