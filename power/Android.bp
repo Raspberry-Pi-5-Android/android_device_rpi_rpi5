@@ -1,0 +1,26 @@
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+// Power HAL for Raspberry Pi 5: CPU boost on interaction and app launch.
+cc_binary {
+    name: "android.hardware.power-service.rpi5",
+    relative_install_path: "hw",
+    vendor: true,
+    init_rc: ["power-rpi5.rc"],
+    vintf_fragments: ["power-rpi5.xml"],
+    srcs: [
+        "main.cpp",
+        "Power.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.power-V5-ndk",
+        "libbase",
+        "libbinder_ndk",
+        "liblog",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}

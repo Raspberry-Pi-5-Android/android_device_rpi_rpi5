@@ -134,3 +134,7 @@ PRODUCT_PACKAGES += \
 # Display: keep the HDMI display landscape; portrait apps are letterboxed.
 PRODUCT_COPY_FILES += \
     device/rpi/rpi5/display_settings.xml:$(TARGET_COPY_OUT_VENDOR)/etc/display_settings.xml
+
+# Power HAL: CPU boost on interaction and app launch.
+PRODUCT_PACKAGES += \
+    android.hardware.power-service.rpi5
