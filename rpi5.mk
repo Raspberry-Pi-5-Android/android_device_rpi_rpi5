@@ -97,8 +97,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     sys.use_memfd=true
 
-# Graphics: OpenGL ES runs on the GPU through Mesa (ro.hardware.egl=mesa). Vulkan
-# still uses SwiftShader (pastel); ANGLE stays installed as a fallback.
+# Graphics: OpenGL ES and Vulkan run on the GPU through Mesa (ro.hardware.egl=mesa,
+# ro.hardware.vulkan=broadcom). ANGLE and SwiftShader (pastel) stay installed as
+# fallbacks.
 
 PRODUCT_PACKAGES += \
     libEGL_angle \
@@ -108,12 +109,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.egl=mesa \
-    ro.hardware.vulkan=pastel \
+    ro.hardware.vulkan=broadcom \
     ro.opengles.version=196609
 
 # Mesa GPU drivers (vendor/rpi/rpi5/mesa): V3D/VC4 for OpenGL ES, V3DV for Vulkan.
-# GLES is selected by ro.hardware.egl=mesa above; the Vulkan driver is installed
-# but not selected yet (ro.hardware.vulkan=pastel).
+# They are selected by ro.hardware.egl=mesa and ro.hardware.vulkan=broadcom above.
 PRODUCT_PACKAGES += \
     libEGL_mesa \
     libGLESv1_CM_mesa \

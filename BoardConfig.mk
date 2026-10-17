@@ -10,8 +10,9 @@ TARGET_CPU_VARIANT := cortex-a76
 # 64-bit only (core_64_bit_only.mk in rpi5.mk): no secondary 32-bit architecture.
 
 # Graphics & Display
-# HWUI must not use Vulkan: SwiftShader (ro.hardware.vulkan=pastel) exposes fewer
-# queues than VulkanManager requires (kRequestedQueueCount=2) -> SystemUI abort.
+# HWUI stays on OpenGL ES until it is validated on V3DV. The previous Vulkan driver,
+# SwiftShader, exposed fewer queues than VulkanManager requires
+# (kRequestedQueueCount=2) -> SystemUI abort.
 # false -> ro.hwui.use_vulkan=false (sysprop_config.mk) -> HWUI renderer skiagl (OpenGL ES).
 TARGET_USES_VULKAN := false
 
