@@ -138,3 +138,8 @@ PRODUCT_COPY_FILES += \
 # Power HAL: CPU boost on interaction and app launch.
 PRODUCT_PACKAGES += \
     android.hardware.power-service.rpi5
+
+# Graphics buffers: let Mesa load the minigbm gralloc0 module (CrOS API) so it
+# gets buffer modifiers and plane layouts instead of using its fallback path.
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.gralloc=minigbm
