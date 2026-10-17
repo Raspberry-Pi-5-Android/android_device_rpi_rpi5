@@ -121,6 +121,13 @@ PRODUCT_PACKAGES += \
     libgallium_dri \
     vulkan.broadcom
 
+# Vulkan features as measured on V3DV (API 1.3, compute queue). Level 1 and a
+# dEQP level are not claimed because they have not been verified.
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml
+
 # Graphics: buffer allocator + mapper (minigbm, dumb buffers on vc4)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-service.minigbm \
