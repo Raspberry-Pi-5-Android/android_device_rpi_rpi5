@@ -150,3 +150,12 @@ PRODUCT_PACKAGES += \
 # gets buffer modifiers and plane layouts instead of using its fallback path.
 PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.gralloc=minigbm
+
+# Wi-Fi and Bluetooth firmware for the CYW43455 (vendor/rpi/rpi5/firmware),
+# installed in /vendor/firmware/brcm. The drivers are kernel modules loaded by
+# init.rpi5.rc; no Wi-Fi or Bluetooth feature is declared until its HAL runs.
+PRODUCT_PACKAGES += \
+    rpi5_brcmfmac43455-sdio.bin \
+    rpi5_brcmfmac43455-sdio.clm_blob \
+    rpi5_brcmfmac43455-sdio.txt \
+    rpi5_BCM4345C0.hcd

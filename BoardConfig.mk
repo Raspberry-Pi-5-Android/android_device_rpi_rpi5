@@ -39,6 +39,10 @@ endif
 BOARD_INCLUDE_RECOVERY_DTBO := false
 BOARD_USES_GENERIC_KERNEL_IMAGE := false
 
+# Kernel modules installed in /vendor/lib/modules (see modules.list in the
+# kernel repo): the Wi-Fi and Bluetooth drivers, loaded by init.rpi5.rc.
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard kernel/rpi/rpi5/modules/*.ko)
+
 # Filesystem & Partition Layout (Static Raw Partitions)
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_FLASH_BLOCK_SIZE := 4096

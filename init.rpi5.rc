@@ -12,3 +12,18 @@ on fs
 # replace with a kernel ashmem driver before switching SELinux to enforcing.
 on post-fs-data
     setprop sys.use_memfd true
+
+# Kernel firmware search path. The Wi-Fi and Bluetooth firmware is installed in
+# /vendor/firmware, which first stage has already mounted.
+on early-init
+    write /sys/module/firmware_class/parameters/path /vendor/firmware
+
+# Wi-Fi and Bluetooth drivers for the CYW43455. brcmfmac needs its firmware
+# vendor module (brcmfmac-wcc) registered before it probes the SDIO card, and
+# Android disables kernel module autoloading, so the SDIO host of the Wi-Fi chip
+# is unbound while the modules load and bound again afterwards. The host is
+# named by its fixed DT address; 1000fff000.mmc is the SD card host.
+on early-boot
+    write /sys/bus/platform/drivers/sdhci-brcmstb/unbind 1001100000.mmc
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules brcmfmac-wcc.ko hci_uart.ko
+    write /sys/bus/platform/drivers/sdhci-brcmstb/bind 1001100000.mmc
