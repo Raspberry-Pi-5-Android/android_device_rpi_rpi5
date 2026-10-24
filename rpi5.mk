@@ -60,9 +60,9 @@ PRODUCT_PACKAGES += com.android.hardware.keymint.rust_nonsecure
 PRODUCT_PACKAGES += com.android.hardware.gatekeeper.nonsecure
 
 # Device feature set: own list derived from the AOSP tablet profile, without
-# hardware the board does not have (bluetooth until a HAL exists, location,
-# sensors, touchscreen, microphone, portrait). app_widgets is required for
-# AppWidgetService (Launcher3). faketouch: pointer input from a mouse.
+# hardware the board does not have (location, sensors, touchscreen,
+# microphone, portrait). app_widgets is required for AppWidgetService
+# (Launcher3). faketouch: pointer input from a mouse.
 PRODUCT_COPY_FILES += \
     device/rpi/rpi5/permissions/rpi5_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/rpi5_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.faketouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.faketouch.xml
@@ -153,7 +153,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Wi-Fi and Bluetooth firmware for the CYW43455 (vendor/rpi/rpi5/firmware),
 # installed in /vendor/firmware/brcm. The drivers are kernel modules loaded by
-# init.rpi5.rc; no Wi-Fi or Bluetooth feature is declared until its HAL runs.
+# init.rpi5.rc. Each feature is declared next to the HAL that provides it.
 PRODUCT_PACKAGES += \
     rpi5_brcmfmac43455-sdio.bin \
     rpi5_brcmfmac43455-sdio.clm_blob \
@@ -171,3 +171,8 @@ PRODUCT_PACKAGES += android.hardware.bluetooth-service.default
 PRODUCT_VENDOR_PROPERTIES += \
     bluetooth.profile.a2dp.source.enabled=true \
     bluetooth.profile.avrcp.target.enabled=true
+
+# Bluetooth features: the CYW43455 supports BR/EDR and LE.
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
