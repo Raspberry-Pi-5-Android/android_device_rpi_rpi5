@@ -190,3 +190,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += wpa_supplicant
 PRODUCT_COPY_FILES += \
     external/wpa_supplicant_8/wpa_supplicant/wpa_supplicant_template.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
+
+# Wi-Fi feature (station mode). Wi-Fi Direct, Passpoint and hotspot are not
+# declared until they are tested.
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
