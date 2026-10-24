@@ -159,3 +159,9 @@ PRODUCT_PACKAGES += \
     rpi5_brcmfmac43455-sdio.clm_blob \
     rpi5_brcmfmac43455-sdio.txt \
     rpi5_BCM4345C0.hcd
+
+# Bluetooth: AOSP HCI HAL on hci0 (hci_uart + btbcm, loaded by init.rpi5.rc)
+# through the HCI user channel. /dev/rfkill stays root-only on purpose: the HAL
+# soft-blocks Bluetooth through it before binding the user channel, and the
+# kernel refuses to open an rfkill-blocked controller (ERFKILL).
+PRODUCT_PACKAGES += android.hardware.bluetooth-service.default
