@@ -165,3 +165,9 @@ PRODUCT_PACKAGES += \
 # soft-blocks Bluetooth through it before binding the user channel, and the
 # kernel refuses to open an rfkill-blocked controller (ERFKILL).
 PRODUCT_PACKAGES += android.hardware.bluetooth-service.default
+
+# Bluetooth profiles that are tested on this device. The stack disables
+# profiles whose property is unset, except GATT, which is on by default.
+PRODUCT_VENDOR_PROPERTIES += \
+    bluetooth.profile.a2dp.source.enabled=true \
+    bluetooth.profile.avrcp.target.enabled=true
