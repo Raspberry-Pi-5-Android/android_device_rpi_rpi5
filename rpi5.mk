@@ -180,3 +180,7 @@ PRODUCT_COPY_FILES += \
 # Media: the software Codec2 service (media.swcodec) registers only the AIDL
 # store, and the framework client picks HIDL unless this is set.
 PRODUCT_VENDOR_PROPERTIES += media.c2.hal.selection=aidl
+
+# mediaextractor seccomp additions for memfd-backed shared memory.
+PRODUCT_COPY_FILES += \
+    device/rpi/rpi5/seccomp_policy/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy

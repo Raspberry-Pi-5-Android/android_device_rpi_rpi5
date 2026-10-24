@@ -1,0 +1,11 @@
+# Copyright (C) 2026 The Raspberry-Pi-5-Android Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# Syscalls added to the mediaextractor seccomp filter (SetUpMinijail reads
+# /vendor/etc/seccomp_policy/mediaextractor.policy). The kernel has no ashmem
+# driver, so shared memory comes from memfd (sys.use_memfd=true) and libcutils
+# needs memfd_create, ftruncate and fcntl sealing.
+memfd_create: 1
+ftruncate: 1
+# F_ADD_SEALS (1033) and F_GET_SEALS (1034) only.
+fcntl: arg1 == 1033 || arg1 == 1034
