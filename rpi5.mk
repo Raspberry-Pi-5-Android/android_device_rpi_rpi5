@@ -176,3 +176,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
+
+# Media: the software Codec2 service (media.swcodec) registers only the AIDL
+# store, and the framework client picks HIDL unless this is set.
+PRODUCT_VENDOR_PROPERTIES += media.c2.hal.selection=aidl
