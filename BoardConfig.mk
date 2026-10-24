@@ -62,3 +62,12 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824    # 1GB
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# Wi-Fi: wpa_supplicant over nl80211 for brcmfmac. WPA_SUPPLICANT_VERSION makes
+# external/wpa_supplicant_8 build its modules. There is no Wi-Fi vendor HAL; the
+# framework drives wlan0 through wificond and the supplicant AIDL service.
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+# Install the supplicant's own init service (AIDL ISupplicant/default);
+# the variable name is historical.
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true

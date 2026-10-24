@@ -184,3 +184,9 @@ PRODUCT_VENDOR_PROPERTIES += media.c2.hal.selection=aidl
 # mediaextractor seccomp additions for memfd-backed shared memory.
 PRODUCT_COPY_FILES += \
     device/rpi/rpi5/seccomp_policy/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+
+# Wi-Fi: wpa_supplicant (AIDL service, started by the framework) with the AOSP
+# configuration template, which it copies to /data/vendor/wifi/wpa on first use.
+PRODUCT_PACKAGES += wpa_supplicant
+PRODUCT_COPY_FILES += \
+    external/wpa_supplicant_8/wpa_supplicant/wpa_supplicant_template.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf

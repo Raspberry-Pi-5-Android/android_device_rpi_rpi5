@@ -27,3 +27,9 @@ on early-boot
     write /sys/bus/platform/drivers/sdhci-brcmstb/unbind 1001100000.mmc
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules brcmfmac-wcc.ko hci_uart.ko
     write /sys/bus/platform/drivers/sdhci-brcmstb/bind 1001100000.mmc
+
+# wpa_supplicant keeps its configuration and control sockets here.
+on post-fs-data
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
