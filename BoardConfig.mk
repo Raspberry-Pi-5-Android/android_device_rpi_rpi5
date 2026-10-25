@@ -28,7 +28,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 # ttyAMA10 is the Pi 5 debug UART (serial10 alias in bcm2712-rpi.dtsi). Kernel
 # messages and the debug shell go there only, so HDMI shows no boot text.
 BOARD_KERNEL_CMDLINE := console=ttyAMA10,115200 root=/dev/ram0 rootwait
-BOARD_KERNEL_CMDLINE += androidboot.hardware=rpi5 androidboot.console=tty0
+BOARD_KERNEL_CMDLINE += androidboot.hardware=rpi5 androidboot.console=ttyAMA10
 # PSI is built in but default-disabled (CONFIG_PSI_DEFAULT_DISABLED=y); lmkd requires it.
 BOARD_KERNEL_CMDLINE += psi=1
 # TEMP: permissive until the device sepolicy is complete.
