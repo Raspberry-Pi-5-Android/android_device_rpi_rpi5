@@ -31,6 +31,8 @@ BOARD_KERNEL_CMDLINE := console=ttyAMA10,115200 root=/dev/ram0 rootwait
 BOARD_KERNEL_CMDLINE += androidboot.hardware=rpi5 androidboot.console=ttyAMA10
 # PSI is built in but default-disabled (CONFIG_PSI_DEFAULT_DISABLED=y); lmkd requires it.
 BOARD_KERNEL_CMDLINE += psi=1
+# No boot logo or text cursor on the framebuffer console.
+BOARD_KERNEL_CMDLINE += logo.nologo vt.global_cursor_default=0
 # TEMP: permissive until the device sepolicy is complete.
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 ifneq ($(TARGET_BUILD_VARIANT),user)
