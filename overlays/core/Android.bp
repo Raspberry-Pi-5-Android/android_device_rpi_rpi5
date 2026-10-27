@@ -1,0 +1,15 @@
+// Copyright (C) 2026 The Raspberry-Pi-5-Android Project
+// SPDX-License-Identifier: Apache-2.0
+//
+// Runtime resource overlay for framework resources, installed on the vendor
+// partition.
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+runtime_resource_overlay {
+    name: "rpi5_overlay_frameworks_base_core",
+    soc_specific: true,
+    sdk_version: "current",
+}

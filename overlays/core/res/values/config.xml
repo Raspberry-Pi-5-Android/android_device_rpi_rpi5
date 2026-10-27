@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The Raspberry-Pi-5-Android Project
+     SPDX-License-Identifier: Apache-2.0 -->
+<resources>
+    <!-- The board has no navigation keys. AOSP defaults to no software
+         navigation bar, which leaves screens narrower than 600dp (where the
+         launcher shows no taskbar) without Back, Home and Recents. -->
+    <bool name="config_showNavigationBar">true</bool>
+</resources>

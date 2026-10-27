@@ -195,3 +195,6 @@ PRODUCT_COPY_FILES += \
 # declared until they are tested.
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
+
+# Framework resource overlay (overlays/core): software navigation bar.
+PRODUCT_PACKAGES += rpi5_overlay_frameworks_base_core
