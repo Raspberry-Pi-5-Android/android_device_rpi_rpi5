@@ -198,3 +198,8 @@ PRODUCT_COPY_FILES += \
 
 # Framework resource overlay (overlays/core): software navigation bar.
 PRODUCT_PACKAGES += rpi5_overlay_frameworks_base_core
+
+# Two-pane Settings on large screens (activity embedding). The property is
+# a system property (default_prop context), so it is set on the system side.
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.settings.large_screen_opt.enabled=true
