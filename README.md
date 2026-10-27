@@ -10,7 +10,6 @@ Branch `android-15`: Android 15, product `rpi5`, 64-bit only.
 | `BoardConfig.mk`, `rpi5.mk`, `AndroidProducts.mk` | Board and product configuration |
 | `init.rpi5.rc`, `fstab.rpi5` | Init script and mount table |
 | `Android.mk` | Boot partition image target (`rpibootimage`) |
-| `android-sdcard.dts`, `android-sdcard.dtbo` | Device tree overlay (source and compiled) |
 | `display_settings.xml` | Display settings |
 | `input/` | Input device configuration |
 | `permissions/` | Device feature list |

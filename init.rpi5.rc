@@ -1,5 +1,5 @@
 # Board-specific init for Raspberry Pi 5
-# First stage (DT overlay android-sdcard) mounts /system and /vendor.
+# First stage init mounts /system and /vendor from the ramdisk copy of fstab.rpi5.
 # /data is mounted here in second stage.
 on fs
     mount_all /vendor/etc/fstab.rpi5

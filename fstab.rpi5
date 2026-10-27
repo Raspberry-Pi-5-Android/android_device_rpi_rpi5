@@ -1,4 +1,8 @@
-# Second-stage fstab (processed by mount_all in init.rpi5.rc).
-# /boot, /system, /vendor are mounted in first stage via DT overlay android-sdcard.
+# Mount table for the Raspberry Pi 5 (microSD).
+# First stage init reads the ramdisk copy (/fstab.rpi5, chosen by
+# androidboot.hardware) and mounts the first_stage_mount entries.
+# mount_all in init.rpi5.rc reads the /vendor/etc copy and mounts the rest.
 #<src>                <mnt_point>  <type>  <mnt_flags>              <fs_mgr_flags>
+/dev/block/mmcblk0p2  /system      ext4    ro                       wait,first_stage_mount
+/dev/block/mmcblk0p3  /vendor      ext4    ro                       wait,first_stage_mount
 /dev/block/mmcblk0p4  /data        ext4    noatime,nosuid,nodev     wait,check,formattable

@@ -28,7 +28,6 @@ RPI_BOOT_OVERLAYS := $(sort $(wildcard $(RPI_KERNEL_DIR)/overlays/*))
 RPI_BOOT_DEPS := $(RPI_KERNEL_DIR)/Image.gz
 RPI_BOOT_DEPS += $(PRODUCT_OUT)/ramdisk.img
 RPI_BOOT_DEPS += $(RPI_BOOT_DTBS) $(RPI_BOOT_OVERLAYS)
-RPI_BOOT_DEPS += $(RPI_DEVICE_DIR)/android-sdcard.dtbo
 RPI_BOOT_DEPS += $(RPI_BOOT_CONFIG)
 # cmdline.txt is generated from BOARD_KERNEL_CMDLINE.
 RPI_BOOT_DEPS += $(RPI_DEVICE_DIR)/BoardConfig.mk
@@ -46,7 +45,6 @@ $(INSTALLED_RPIBOOTIMAGE_TARGET): $(RPI_BOOT_DEPS)
 	$(hide) cp $(PRODUCT_OUT)/ramdisk.img $(PRIVATE_STAGING)/ramdisk.img
 	$(hide) cp $(PRIVATE_DTBS) $(PRIVATE_STAGING)/
 	$(hide) cp $(PRIVATE_OVERLAYS) $(PRIVATE_STAGING)/overlays/
-	$(hide) cp $(PRIVATE_DEVICE_DIR)/android-sdcard.dtbo $(PRIVATE_STAGING)/overlays/
 	$(hide) cp $(RPI_BOOT_CONFIG) $(PRIVATE_STAGING)/config.txt
 	$(hide) echo '$(PRIVATE_CMDLINE)' > $(PRIVATE_STAGING)/cmdline.txt
 	$(hide) $(HOST_OUT_EXECUTABLES)/newfs_msdos -F 32 -c 1 -L boot -S 512 -s $(RPI_BOOT_IMAGE_SECTORS) -h 255 -u 63 -o 2048 -C $(RPI_BOOT_IMAGE_SIZE) $@ >/dev/null
