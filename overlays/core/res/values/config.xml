@@ -6,4 +6,8 @@
          navigation bar, which leaves screens narrower than 600dp (where the
          launcher shows no taskbar) without Back, Home and Recents. -->
     <bool name="config_showNavigationBar">true</bool>
+
+    <!-- The board cannot wake from system suspend with its input devices,
+         so the device stays awake and only turns the display off. -->
+    <bool name="config_useAutoSuspend">false</bool>
 </resources>
